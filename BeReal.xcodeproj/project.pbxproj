@@ -7,9 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		940BDECD297BEA4200B08F23 /* MainScreenTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940BDECC297BEA4200B08F23 /* MainScreenTable.swift */; };
+		94782EAC298CF4F4007445DC /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94782EAB298CF4F4007445DC /* VideoModel.swift */; };
+		94D907B8298DA59F00C8BEB6 /* MainScreenVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D907B7298DA59F00C8BEB6 /* MainScreenVideoCell.swift */; };
+		94D907BA298DAB9D00C8BEB6 /* MainScreenCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94D907B9298DAB9D00C8BEB6 /* MainScreenCellView.xib */; };
+		94D907BC298DBA9E00C8BEB6 /* MonthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D907BB298DBA9E00C8BEB6 /* MonthModel.swift */; };
+		94D907BE298E4C8800C8BEB6 /* CommonNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D907BD298E4C8800C8BEB6 /* CommonNavigationController.swift */; };
+		94D907C4298E550D00C8BEB6 /* VideoShowingContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D907C3298E550D00C8BEB6 /* VideoShowingContoller.swift */; };
+		94D907C6298E590500C8BEB6 /* MainScreenWeekDayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94D907C5298E590500C8BEB6 /* MainScreenWeekDayCellView.xib */; };
+		94D907C8298E59D400C8BEB6 /* MainScreenWeekDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D907C7298E59D400C8BEB6 /* MainScreenWeekDayCell.swift */; };
+		94D907CA298FA6AE00C8BEB6 /* MonthPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D907C9298FA6AE00C8BEB6 /* MonthPickerView.swift */; };
 		94EFCA252976B6D90095B8D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EFCA242976B6D90095B8D3 /* AppDelegate.swift */; };
 		94EFCA272976B6D90095B8D3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EFCA262976B6D90095B8D3 /* SceneDelegate.swift */; };
-		94EFCA292976B6DA0095B8D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EFCA282976B6DA0095B8D3 /* ViewController.swift */; };
 		94EFCA2C2976B6DA0095B8D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94EFCA2A2976B6DA0095B8D3 /* Main.storyboard */; };
 		94EFCA2F2976B6DA0095B8D3 /* BeReal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 94EFCA2D2976B6DA0095B8D3 /* BeReal.xcdatamodeld */; };
 		94EFCA312976B6DC0095B8D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94EFCA302976B6DC0095B8D3 /* Assets.xcassets */; };
@@ -17,10 +26,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		940BDECC297BEA4200B08F23 /* MainScreenTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTable.swift; sourceTree = "<group>"; };
+		94782EAB298CF4F4007445DC /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
+		94D907B7298DA59F00C8BEB6 /* MainScreenVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenVideoCell.swift; sourceTree = "<group>"; };
+		94D907B9298DAB9D00C8BEB6 /* MainScreenCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainScreenCellView.xib; sourceTree = "<group>"; };
+		94D907BB298DBA9E00C8BEB6 /* MonthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthModel.swift; sourceTree = "<group>"; };
+		94D907BD298E4C8800C8BEB6 /* CommonNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonNavigationController.swift; sourceTree = "<group>"; };
+		94D907C3298E550D00C8BEB6 /* VideoShowingContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoShowingContoller.swift; sourceTree = "<group>"; };
+		94D907C5298E590500C8BEB6 /* MainScreenWeekDayCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainScreenWeekDayCellView.xib; sourceTree = "<group>"; };
+		94D907C7298E59D400C8BEB6 /* MainScreenWeekDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenWeekDayCell.swift; sourceTree = "<group>"; };
+		94D907C9298FA6AE00C8BEB6 /* MonthPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthPickerView.swift; sourceTree = "<group>"; };
 		94EFCA212976B6D90095B8D3 /* BeReal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeReal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94EFCA242976B6D90095B8D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94EFCA262976B6D90095B8D3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		94EFCA282976B6DA0095B8D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		94EFCA2B2976B6DA0095B8D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		94EFCA2E2976B6DA0095B8D3 /* BeReal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BeReal.xcdatamodel; sourceTree = "<group>"; };
 		94EFCA302976B6DC0095B8D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -39,6 +57,79 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		940BDECE297BEA4C00B08F23 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				94D907B5298DA54B00C8BEB6 /* View */,
+				94D907B6298DA55600C8BEB6 /* ViewModel */,
+				94782EAA298CF4E0007445DC /* Models */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		94782EAA298CF4E0007445DC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				94782EAB298CF4F4007445DC /* VideoModel.swift */,
+				94D907BB298DBA9E00C8BEB6 /* MonthModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		94D907B5298DA54B00C8BEB6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				94EFCA2A2976B6DA0095B8D3 /* Main.storyboard */,
+				94D907B9298DAB9D00C8BEB6 /* MainScreenCellView.xib */,
+				94D907C5298E590500C8BEB6 /* MainScreenWeekDayCellView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		94D907B6298DA55600C8BEB6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				940BDECC297BEA4200B08F23 /* MainScreenTable.swift */,
+				94D907B7298DA59F00C8BEB6 /* MainScreenVideoCell.swift */,
+				94D907BD298E4C8800C8BEB6 /* CommonNavigationController.swift */,
+				94D907C7298E59D400C8BEB6 /* MainScreenWeekDayCell.swift */,
+				94D907C9298FA6AE00C8BEB6 /* MonthPickerView.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		94D907BF298E546E00C8BEB6 /* VideoShowingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				94D907C2298E54E000C8BEB6 /* View */,
+				94D907C1298E54DA00C8BEB6 /* ViewModel */,
+				94D907C0298E54BA00C8BEB6 /* Model */,
+			);
+			path = VideoShowingScreen;
+			sourceTree = "<group>";
+		};
+		94D907C0298E54BA00C8BEB6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		94D907C1298E54DA00C8BEB6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		94D907C2298E54E000C8BEB6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				94D907C3298E550D00C8BEB6 /* VideoShowingContoller.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		94EFCA182976B6D90095B8D3 = {
 			isa = PBXGroup;
 			children = (
@@ -58,10 +149,10 @@
 		94EFCA232976B6D90095B8D3 /* BeReal */ = {
 			isa = PBXGroup;
 			children = (
+				940BDECE297BEA4C00B08F23 /* MainScreen */,
+				94D907BF298E546E00C8BEB6 /* VideoShowingScreen */,
 				94EFCA242976B6D90095B8D3 /* AppDelegate.swift */,
 				94EFCA262976B6D90095B8D3 /* SceneDelegate.swift */,
-				94EFCA282976B6DA0095B8D3 /* ViewController.swift */,
-				94EFCA2A2976B6DA0095B8D3 /* Main.storyboard */,
 				94EFCA302976B6DC0095B8D3 /* Assets.xcassets */,
 				94EFCA322976B6DC0095B8D3 /* LaunchScreen.storyboard */,
 				94EFCA352976B6DC0095B8D3 /* Info.plist */,
@@ -130,6 +221,8 @@
 			files = (
 				94EFCA342976B6DC0095B8D3 /* LaunchScreen.storyboard in Resources */,
 				94EFCA312976B6DC0095B8D3 /* Assets.xcassets in Resources */,
+				94D907C6298E590500C8BEB6 /* MainScreenWeekDayCellView.xib in Resources */,
+				94D907BA298DAB9D00C8BEB6 /* MainScreenCellView.xib in Resources */,
 				94EFCA2C2976B6DA0095B8D3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,10 +234,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94EFCA292976B6DA0095B8D3 /* ViewController.swift in Sources */,
+				94782EAC298CF4F4007445DC /* VideoModel.swift in Sources */,
+				94D907BE298E4C8800C8BEB6 /* CommonNavigationController.swift in Sources */,
 				94EFCA252976B6D90095B8D3 /* AppDelegate.swift in Sources */,
+				940BDECD297BEA4200B08F23 /* MainScreenTable.swift in Sources */,
+				94D907BC298DBA9E00C8BEB6 /* MonthModel.swift in Sources */,
 				94EFCA2F2976B6DA0095B8D3 /* BeReal.xcdatamodeld in Sources */,
+				94D907B8298DA59F00C8BEB6 /* MainScreenVideoCell.swift in Sources */,
+				94D907C4298E550D00C8BEB6 /* VideoShowingContoller.swift in Sources */,
+				94D907CA298FA6AE00C8BEB6 /* MonthPickerView.swift in Sources */,
 				94EFCA272976B6D90095B8D3 /* SceneDelegate.swift in Sources */,
+				94D907C8298E59D400C8BEB6 /* MainScreenWeekDayCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,11 +394,16 @@
 				DEVELOPMENT_TEAM = Y27S32PB7A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BeReal/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BeReal;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To capture videos";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "To capture videos";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "To store videos and other data";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -322,11 +427,16 @@
 				DEVELOPMENT_TEAM = Y27S32PB7A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BeReal/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BeReal;
+				INFOPLIST_KEY_NSCameraUsageDescription = "To capture videos";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "To capture videos";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "To store videos and other data";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

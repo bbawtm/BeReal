@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  BeReal
 //
-//  Created by Вадим Попов on 17.01.2023.
+//  Created by Vadim Popov on 17.01.2023.
 //
 
 import UIKit
