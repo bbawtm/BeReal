@@ -134,7 +134,7 @@ class MainScreenTable:
             let emptyCellCount = visibleMonth.firstWeekDay - 2
             newCell.layer.cornerRadius = 5
             if indexPath.item >= emptyCellCount {
-                newCell.imgView.image = visibleMonth.items[indexPath.item - emptyCellCount].image
+                newCell.imgView.image = visibleMonth.items[indexPath.item - emptyCellCount].previewImage
                 newCell.dayLabel.text = String(indexPath.item + 1 - emptyCellCount)
                 newCell.layer.borderColor = CGColor(gray: 1, alpha: 1)
                 newCell.layer.borderWidth = 0.75
@@ -176,14 +176,17 @@ class MainScreenTable:
             return
         }
         let itemIndex = indexPath.item - (visibleMonth.firstWeekDay - 2)
-        performSegue(withIdentifier: "gotoVideoShowingScreen", sender: itemIndex)
+        let videoModel = visibleMonth.items[itemIndex] as VideoModel
+        if videoModel.videoURL != nil {
+            performSegue(withIdentifier: "gotoVideoShowingScreen", sender: videoModel)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? VideoShowingContoller,
-           let itemIndex = sender as? Int
+           let vm = sender as? VideoModel
         {
-            destinationVC.videoModel = visibleMonth.items[itemIndex]
+            destinationVC.videoModel = vm
         }
     }
     
@@ -224,18 +227,30 @@ class MainScreenTable:
         }
         
         if let pickedVideo: URL = (info[UIImagePickerController.InfoKey.mediaURL] as? URL) {
-            // Save video to the main photo album
-//            let selectorToCall = #selector(ViewController.videoWasSavedSuccessfully(_:didFinishSavingWithError:context:))
-//            UISaveVideoAtPathToSavedPhotosAlbum(pickedVideo.relativePath, self, selectorToCall, nil)
-            
-            // Save the video to the app directory so we can play it later
             let videoData = try? Data(contentsOf: pickedVideo)
-//            let paths = NSSearchPathForDirectoriesInDomains(
-//                    FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-//            let documentsDirectory: URL = URL(fileURLWithPath: paths[0])
-//            let dataPath = documentsDirectory.appendingPathComponent(saveFileName)
-//            try! videoData?.write(to: dataPath, options: [])
-//            print("Saved to " + dataPath.absoluteString)
+            let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+            let documentsDirectory = paths[0]
+            let customDirectory = URL(fileURLWithPath: documentsDirectory).appendingPathComponent("videos", conformingTo: .directory)
+            if !FileManager.default.fileExists(atPath: customDirectory.path) {
+                do {
+                    try FileManager.default.createDirectory(atPath: customDirectory.path, withIntermediateDirectories: true, attributes: nil)
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd-MM-yyyy"
+            formatter.timeZone = .gmt
+            let currentDay = formatter.string(from: Date())
+            
+            let dataPath = customDirectory.appendingPathComponent("vid-\(currentDay).mp4", conformingTo: .data)
+            do {
+                try videoData?.write(to: dataPath, options: [])
+                print("Saved to " + dataPath.absoluteString)
+            } catch {
+                print(error.localizedDescription)
+            }
         }
         
         videoPicker.dismiss(animated: true, completion: {})

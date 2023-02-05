@@ -61,17 +61,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tsl-VP-U3i">
-                                <rect key="frame" x="76" y="362" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nBc-6G-zQD">
+                                <rect key="frame" x="16" y="185.33333333333334" width="361" height="481.33333333333326"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="nBc-6G-zQD" secondAttribute="height" multiplier="3:4" id="H3S-9F-oho"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aIi-xx-k7G"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nBc-6G-zQD" firstAttribute="leading" secondItem="aIi-xx-k7G" secondAttribute="leading" constant="16" id="0aF-3S-Sht"/>
+                            <constraint firstItem="nBc-6G-zQD" firstAttribute="centerY" secondItem="keh-xQ-UGb" secondAttribute="centerY" id="4gH-Zc-X5Z"/>
+                            <constraint firstItem="nBc-6G-zQD" firstAttribute="centerX" secondItem="keh-xQ-UGb" secondAttribute="centerX" id="Wvi-uq-yAQ"/>
+                            <constraint firstItem="aIi-xx-k7G" firstAttribute="trailing" secondItem="nBc-6G-zQD" secondAttribute="trailing" constant="16" id="drt-KE-PQ8"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" largeTitleDisplayMode="never" id="Wvd-aM-Qdp"/>
                     <connections>
-                        <outlet property="imgView" destination="tsl-VP-U3i" id="cm8-ax-Qc9"/>
+                        <outlet property="imgView" destination="nBc-6G-zQD" id="kat-Zc-EAm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GsH-ke-dyz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
