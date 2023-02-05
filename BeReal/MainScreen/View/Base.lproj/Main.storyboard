@@ -12,8 +12,8 @@
         <scene sceneID="Vu5-D3-fim">
             <objects>
                 <navigationController id="RlL-xb-qgq" customClass="CommonNavigationController" customModule="BeReal" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Wx2-cP-Bbb">
-                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wx2-cP-Bbb">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -44,7 +44,7 @@
                             <outlet property="delegate" destination="a8l-qN-LMK" id="aJk-4F-TjI"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="BeReal" id="GzJ-hH-YpX"/>
+                    <navigationItem key="navigationItem" title="BeReal" largeTitleDisplayMode="never" id="GzJ-hH-YpX"/>
                     <connections>
                         <segue destination="f6b-gg-0ul" kind="show" identifier="gotoVideoShowingScreen" id="CrD-VQ-00U"/>
                     </connections>

@@ -24,18 +24,22 @@ class MainScreenTable:
     public var visibleMonth = MonthModel(2, 2023)
     private let weekDayNamings = ["пн", "вт", "ср", "чт", "пт", "сб", "вс"]
     
-    private lazy var videoPicker = {
+    private lazy var videoPicker: UIImagePickerController? = {
         let picker = UIImagePickerController()
         picker.sourceType = .camera
         picker.delegate = self
+#if targetEnvironment(simulator)
+        return nil
+#else
         picker.mediaTypes = [UTType.movie.identifier]
         picker.allowsEditing = false
         return picker
+#endif
     }()
     
     private let monthField = {
         let monthField = UITextField()
-        monthField.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.2)
+        monthField.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.175)
         monthField.setMonthPickerAsInputView(selector: #selector(refreshForMonth))
         
         let widthPaddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 0))
@@ -83,7 +87,7 @@ class MainScreenTable:
             newVideoButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             newVideoButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             
-            monthField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            monthField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
             monthField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             monthField.heightAnchor.constraint(equalToConstant: 38),
         ])
@@ -160,7 +164,7 @@ class MainScreenTable:
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         if section == 0 {
-            return CGSize(width: collectionView.frame.size.width, height: 50)
+            return CGSize(width: collectionView.frame.size.width, height: 90)
         }
         return CGSize()
     }
@@ -204,12 +208,21 @@ class MainScreenTable:
     // MARK: - Capture video
     
     @objc private func recordVideo() {
+        guard let videoPicker else {
+            simulatorVideoCaptureAlert()
+            return
+        }
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
             self.present(videoPicker, animated: true, completion: nil)
         }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let videoPicker else {
+            simulatorVideoCaptureAlert()
+            return
+        }
+        
         if let pickedVideo: URL = (info[UIImagePickerController.InfoKey.mediaURL] as? URL) {
             // Save video to the main photo album
 //            let selectorToCall = #selector(ViewController.videoWasSavedSuccessfully(_:didFinishSavingWithError:context:))
@@ -226,6 +239,12 @@ class MainScreenTable:
         }
         
         videoPicker.dismiss(animated: true, completion: {})
+    }
+    
+    private func simulatorVideoCaptureAlert() {
+        let simulatorVideoAlert = UIAlertController(title: "This is a simulator", message: "It's unable to run camera", preferredStyle: .alert)
+        simulatorVideoAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        self.present(simulatorVideoAlert, animated: true)
     }
     
 }
