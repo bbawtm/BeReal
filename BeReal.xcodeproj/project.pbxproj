@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		940BDECD297BEA4200B08F23 /* MainScreenTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940BDECC297BEA4200B08F23 /* MainScreenTable.swift */; };
 		94782EAC298CF4F4007445DC /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94782EAB298CF4F4007445DC /* VideoModel.swift */; };
+		94D661BC299132CA00BA8560 /* VideoPickerProviderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D661BB299132CA00BA8560 /* VideoPickerProviderModel.swift */; };
 		94D907B8298DA59F00C8BEB6 /* MainScreenVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D907B7298DA59F00C8BEB6 /* MainScreenVideoCell.swift */; };
 		94D907BA298DAB9D00C8BEB6 /* MainScreenCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94D907B9298DAB9D00C8BEB6 /* MainScreenCellView.xib */; };
 		94D907BC298DBA9E00C8BEB6 /* MonthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D907BB298DBA9E00C8BEB6 /* MonthModel.swift */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		940BDECC297BEA4200B08F23 /* MainScreenTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTable.swift; sourceTree = "<group>"; };
 		94782EAB298CF4F4007445DC /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
+		94D661BB299132CA00BA8560 /* VideoPickerProviderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPickerProviderModel.swift; sourceTree = "<group>"; };
 		94D907B7298DA59F00C8BEB6 /* MainScreenVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenVideoCell.swift; sourceTree = "<group>"; };
 		94D907B9298DAB9D00C8BEB6 /* MainScreenCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainScreenCellView.xib; sourceTree = "<group>"; };
 		94D907BB298DBA9E00C8BEB6 /* MonthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthModel.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			children = (
 				94782EAB298CF4F4007445DC /* VideoModel.swift */,
 				94D907BB298DBA9E00C8BEB6 /* MonthModel.swift */,
+				94D661BB299132CA00BA8560 /* VideoPickerProviderModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				94782EAC298CF4F4007445DC /* VideoModel.swift in Sources */,
 				94D907BE298E4C8800C8BEB6 /* CommonNavigationController.swift in Sources */,
 				94EFCA252976B6D90095B8D3 /* AppDelegate.swift in Sources */,
+				94D661BC299132CA00BA8560 /* VideoPickerProviderModel.swift in Sources */,
 				940BDECD297BEA4200B08F23 /* MainScreenTable.swift in Sources */,
 				94D907BC298DBA9E00C8BEB6 /* MonthModel.swift in Sources */,
 				94EFCA2F2976B6DA0095B8D3 /* BeReal.xcdatamodeld in Sources */,

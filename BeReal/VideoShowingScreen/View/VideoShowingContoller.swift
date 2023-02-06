@@ -10,9 +10,13 @@ import AVFoundation
 import AVKit
 
 
-class VideoShowingContoller: UIViewController {
-    
-    var videoModel: VideoModel? = nil
+class VideoShowingContoller:
+    UIViewController,
+    UIImagePickerControllerDelegate,
+    UINavigationControllerDelegate
+{
+    public var videoModel: VideoModel? = nil
+    private lazy var videoPickerProvider = VideoPickerProviderModel(delegate: self)
     
     @IBOutlet var imgView: UIImageView!
     
@@ -45,8 +49,17 @@ class VideoShowingContoller: UIViewController {
         }
     }
     
+    // MARK: - Picker Functions
+    
     @IBAction private func setNewVideo() {
-        
+        videoPickerProvider.recordVideo()
+    }
+    
+    func imagePickerController(
+        _ picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]
+    ) {
+        self.videoPickerProvider.saveRecievedVideo(picker, didFinishPickingMediaWithInfo: info)
     }
     
 }
