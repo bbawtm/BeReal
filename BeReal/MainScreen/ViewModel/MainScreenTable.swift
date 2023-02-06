@@ -117,8 +117,10 @@ class MainScreenTable:
             
             let emptyCellCount = visibleMonth.firstWeekDay - 2
             newCell.layer.cornerRadius = 5
+            newCell.imgView.layer.cornerRadius = 5
             if indexPath.item >= emptyCellCount {
-                newCell.imgView.image = visibleMonth.items[indexPath.item - emptyCellCount].previewImage
+                let thisVideoModel = visibleMonth.items[indexPath.item - emptyCellCount]
+                newCell.imgView.image = thisVideoModel.previewImage
                 newCell.dayLabel.text = String(indexPath.item + 1 - emptyCellCount)
                 newCell.layer.borderColor = CGColor(gray: 1, alpha: 1)
                 newCell.layer.borderWidth = 0.75
@@ -161,9 +163,7 @@ class MainScreenTable:
         }
         let itemIndex = indexPath.item - (visibleMonth.firstWeekDay - 2)
         let videoModel = visibleMonth.items[itemIndex] as VideoModel
-        if videoModel.videoURL != nil {
-            performSegue(withIdentifier: "gotoVideoShowingScreen", sender: videoModel)
-        }
+        performSegue(withIdentifier: "gotoVideoShowingScreen", sender: videoModel)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

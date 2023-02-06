@@ -121,6 +121,7 @@
 		94D907C1298E54DA00C8BEB6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				94D907C3298E550D00C8BEB6 /* VideoShowingContoller.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -128,7 +129,6 @@
 		94D907C2298E54E000C8BEB6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				94D907C3298E550D00C8BEB6 /* VideoShowingContoller.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

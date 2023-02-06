@@ -77,29 +77,48 @@
                                 </constraints>
                                 <imageReference key="image" image="play.circle" catalog="system" symbolScale="default"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play.slash.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aNK-lF-ngd">
+                                <rect key="frame" x="151.66666666666666" y="382.66666666666669" width="90" height="86.333333333333314"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="ijQ-nW-kk9"/>
+                                    <constraint firstAttribute="height" constant="90" id="v77-bC-BFe"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aIi-xx-k7G"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="nBc-6G-zQD" firstAttribute="leading" secondItem="aIi-xx-k7G" secondAttribute="leading" constant="16" id="0aF-3S-Sht"/>
                             <constraint firstItem="nBc-6G-zQD" firstAttribute="centerY" secondItem="keh-xQ-UGb" secondAttribute="centerY" id="4gH-Zc-X5Z"/>
+                            <constraint firstItem="aNK-lF-ngd" firstAttribute="centerX" secondItem="keh-xQ-UGb" secondAttribute="centerX" id="993-7I-GVr"/>
                             <constraint firstItem="eMi-FX-yyy" firstAttribute="centerX" secondItem="keh-xQ-UGb" secondAttribute="centerX" id="G9I-jD-qEC"/>
                             <constraint firstItem="eMi-FX-yyy" firstAttribute="centerY" secondItem="keh-xQ-UGb" secondAttribute="centerY" id="NdL-5U-hSi"/>
                             <constraint firstItem="eMi-FX-yyy" firstAttribute="centerX" secondItem="keh-xQ-UGb" secondAttribute="centerX" id="QPT-vI-kcQ"/>
                             <constraint firstItem="nBc-6G-zQD" firstAttribute="centerX" secondItem="keh-xQ-UGb" secondAttribute="centerX" id="Wvi-uq-yAQ"/>
                             <constraint firstItem="eMi-FX-yyy" firstAttribute="centerY" secondItem="keh-xQ-UGb" secondAttribute="centerY" id="aIi-W1-v14"/>
                             <constraint firstItem="aIi-xx-k7G" firstAttribute="trailing" secondItem="nBc-6G-zQD" secondAttribute="trailing" constant="16" id="drt-KE-PQ8"/>
+                            <constraint firstItem="aNK-lF-ngd" firstAttribute="centerY" secondItem="keh-xQ-UGb" secondAttribute="centerY" id="g88-me-3yf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" largeTitleDisplayMode="never" id="Wvd-aM-Qdp">
-                        <barButtonItem key="rightBarButtonItem" image="memories" catalog="system" id="M78-N4-rLV">
-                            <connections>
-                                <action selector="setNewVideo" destination="f6b-gg-0ul" id="ZIV-Zz-Che"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="memories" catalog="system" id="M78-N4-rLV">
+                                <connections>
+                                    <action selector="setNewVideo" destination="f6b-gg-0ul" id="ZIV-Zz-Che"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="square.and.arrow.up" catalog="system" id="kAr-HW-Jm6">
+                                <connections>
+                                    <action selector="sharePopoverSubviewWithSender:" destination="f6b-gg-0ul" id="tTR-Xy-5cy"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="imgView" destination="nBc-6G-zQD" id="kat-Zc-EAm"/>
+                        <outlet property="nothingHereIcon" destination="aNK-lF-ngd" id="LZP-N0-Xlc"/>
+                        <outlet property="playIcon" destination="eMi-FX-yyy" id="XSS-H4-IY6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GsH-ke-dyz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -110,6 +129,8 @@
     <resources>
         <image name="memories" catalog="system" width="128" height="112"/>
         <image name="play.circle" catalog="system" width="128" height="123"/>
+        <image name="play.slash.fill" catalog="system" width="117" height="128"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

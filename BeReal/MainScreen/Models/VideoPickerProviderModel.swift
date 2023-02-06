@@ -14,9 +14,11 @@ class VideoPickerProviderModel {
     typealias DelegateType = UIImagePickerControllerDelegate & UINavigationControllerDelegate & UIViewController
     
     private let delegate: DelegateType
+    private let date: Date
     
-    public init(delegate: DelegateType) {
+    public init(delegate: DelegateType, date: Date = Date()) {
         self.delegate = delegate
+        self.date = date
     }
     
     private lazy var videoRecordPicker: UIImagePickerController? = {
@@ -43,7 +45,7 @@ class VideoPickerProviderModel {
     
     @objc public func recordVideo() {
         let selectionAlert = UIAlertController(
-            title: "Select source",
+            title: "Select a source",
             message: nil,
             preferredStyle: .actionSheet
         )
@@ -89,7 +91,7 @@ class VideoPickerProviderModel {
             let formatter = DateFormatter()
             formatter.dateFormat = "dd-MM-yyyy"
             formatter.timeZone = .gmt
-            let currentDay = formatter.string(from: Date())
+            let currentDay = formatter.string(from: self.date)
             
             let dataPath = customDirectory.appendingPathComponent("vid-\(currentDay).mp4", conformingTo: .data)
             do {
