@@ -24,17 +24,26 @@ class MainScreenTable:
     public var visibleMonth = MonthModel(2, 2023)
     private let weekDayNamings = ["пн", "вт", "ср", "чт", "пт", "сб", "вс"]
     
-    private lazy var videoPicker: UIImagePickerController? = {
+    private lazy var videoRecordPicker: UIImagePickerController? = {
         let picker = UIImagePickerController()
-        picker.sourceType = .camera
         picker.delegate = self
+        picker.mediaTypes = [UTType.movie.identifier]
 #if targetEnvironment(simulator)
         return nil
 #else
-        picker.mediaTypes = [UTType.movie.identifier]
+        picker.sourceType = .camera
         picker.allowsEditing = false
         return picker
 #endif
+    }()
+    
+    private lazy var videoPhotosPicker: UIImagePickerController = {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.mediaTypes = [UTType.movie.identifier]
+        picker.sourceType = .photoLibrary
+        picker.allowsEditing = false
+        return picker
     }()
     
     private let monthField = {
@@ -211,21 +220,28 @@ class MainScreenTable:
     // MARK: - Capture video
     
     @objc private func recordVideo() {
-        guard let videoPicker else {
-            simulatorVideoCaptureAlert()
-            return
-        }
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
-            self.present(videoPicker, animated: true, completion: nil)
-        }
+        let selectionAlert = UIAlertController(
+            title: "Select source",
+            message: nil,
+            preferredStyle: .actionSheet
+        )
+        selectionAlert.addAction(UIAlertAction(title: "Record video", style: .default, handler: { action in
+            guard let picker = self.videoRecordPicker else {
+                self.simulatorVideoCaptureAlert()
+                return
+            }
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+                self.present(picker, animated: true, completion: nil)
+            }
+        }))
+        selectionAlert.addAction(UIAlertAction(title: "Choose from Photos", style: .default, handler: { action in
+            self.present(self.videoPhotosPicker, animated: true, completion: nil)
+        }))
+        selectionAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        self.present(selectionAlert, animated: true)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let videoPicker else {
-            simulatorVideoCaptureAlert()
-            return
-        }
-        
         if let pickedVideo: URL = (info[UIImagePickerController.InfoKey.mediaURL] as? URL) {
             let videoData = try? Data(contentsOf: pickedVideo)
             let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
@@ -252,41 +268,14 @@ class MainScreenTable:
                 print(error.localizedDescription)
             }
         }
-        
-        videoPicker.dismiss(animated: true, completion: {})
+        videoPhotosPicker.dismiss(animated: true)
+        videoRecordPicker?.dismiss(animated: true)
     }
     
     private func simulatorVideoCaptureAlert() {
         let simulatorVideoAlert = UIAlertController(title: "This is a simulator", message: "It's unable to run camera", preferredStyle: .alert)
         simulatorVideoAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         self.present(simulatorVideoAlert, animated: true)
-    }
-    
-}
-
-extension UITextField {
-    
-    func setMonthPickerAsInputView(selector: Selector) {
-        let screenWidth = UIScreen.main.bounds.width
-        
-        let datePicker = MonthPickerView()
-        datePicker.selectToday()
-        datePicker.translatesAutoresizingMaskIntoConstraints = false
-        self.inputView = datePicker
-        
-        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 50))
-        toolbar.translatesAutoresizingMaskIntoConstraints = false
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(tapCancel))
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: nil, action: selector)
-        toolbar.setItems([cancelButton, flexibleSpace, doneButton], animated: false)
-        self.inputAccessoryView = toolbar
-        
-        self.text = "\(datePicker.currentMonthName) \(datePicker.currentYearName)"
-    }
-    
-    @objc func tapCancel() {
-        self.resignFirstResponder()
     }
     
 }

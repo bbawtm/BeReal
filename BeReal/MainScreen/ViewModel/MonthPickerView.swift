@@ -8,6 +8,8 @@
 import UIKit
 
 
+// MARK: MonthPickerView
+
 class MonthPickerView: UIPickerView  {
 
     enum Component: Int {
@@ -156,4 +158,34 @@ extension MonthPickerView: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
     }
+}
+
+
+// MARK: - TextField MonthPicker
+
+extension UITextField {
+    
+    func setMonthPickerAsInputView(selector: Selector) {
+        let screenWidth = UIScreen.main.bounds.width
+        
+        let datePicker = MonthPickerView()
+        datePicker.selectToday()
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        self.inputView = datePicker
+        
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 50))
+        toolbar.translatesAutoresizingMaskIntoConstraints = false
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(tapCancel))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: nil, action: selector)
+        toolbar.setItems([cancelButton, flexibleSpace, doneButton], animated: false)
+        self.inputAccessoryView = toolbar
+        
+        self.text = "\(datePicker.currentMonthName) \(datePicker.currentYearName)"
+    }
+    
+    @objc func tapCancel() {
+        self.resignFirstResponder()
+    }
+    
 }
