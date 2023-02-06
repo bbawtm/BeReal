@@ -97,6 +97,7 @@
 				94D907BD298E4C8800C8BEB6 /* CommonNavigationController.swift */,
 				94D907C7298E59D400C8BEB6 /* MainScreenWeekDayCell.swift */,
 				94D907C9298FA6AE00C8BEB6 /* MonthPickerView.swift */,
+				94D907C3298E550D00C8BEB6 /* VideoShowingContoller.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -121,7 +122,6 @@
 		94D907C1298E54DA00C8BEB6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				94D907C3298E550D00C8BEB6 /* VideoShowingContoller.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
