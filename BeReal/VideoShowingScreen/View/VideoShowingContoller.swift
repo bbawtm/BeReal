@@ -45,4 +45,8 @@ class VideoShowingContoller: UIViewController {
         }
     }
     
+    @IBAction private func setNewVideo() {
+        
+    }
+    
 }

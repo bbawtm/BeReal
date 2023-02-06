@@ -6,9 +6,6 @@
 //
 
 import UIKit
-import MobileCoreServices
-import AVKit
-import AVFoundation
 import UniformTypeIdentifiers
 
 
@@ -64,7 +61,7 @@ class MainScreenTable:
     
     private let newVideoButton = {
         var newVideoButtonConfig = UIButton.Configuration.filled()
-        newVideoButtonConfig.title = "Capture new"
+        newVideoButtonConfig.title = "Record today's"
         newVideoButtonConfig.buttonSize = .large
         newVideoButtonConfig.cornerStyle = .capsule
         let newVideoButton = UIButton(configuration: newVideoButtonConfig)

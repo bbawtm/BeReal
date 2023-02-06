@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -67,17 +68,36 @@
                                     <constraint firstAttribute="width" secondItem="nBc-6G-zQD" secondAttribute="height" multiplier="3:4" id="H3S-9F-oho"/>
                                 </constraints>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="eMi-FX-yyy">
+                                <rect key="frame" x="141.66666666666666" y="372" width="110" height="108.66666666666669"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="0qU-eF-PYX"/>
+                                    <constraint firstAttribute="width" constant="110" id="cx1-cE-OR2"/>
+                                </constraints>
+                                <imageReference key="image" image="play.circle" catalog="system" symbolScale="default"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aIi-xx-k7G"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="nBc-6G-zQD" firstAttribute="leading" secondItem="aIi-xx-k7G" secondAttribute="leading" constant="16" id="0aF-3S-Sht"/>
                             <constraint firstItem="nBc-6G-zQD" firstAttribute="centerY" secondItem="keh-xQ-UGb" secondAttribute="centerY" id="4gH-Zc-X5Z"/>
+                            <constraint firstItem="eMi-FX-yyy" firstAttribute="centerX" secondItem="keh-xQ-UGb" secondAttribute="centerX" id="G9I-jD-qEC"/>
+                            <constraint firstItem="eMi-FX-yyy" firstAttribute="centerY" secondItem="keh-xQ-UGb" secondAttribute="centerY" id="NdL-5U-hSi"/>
+                            <constraint firstItem="eMi-FX-yyy" firstAttribute="centerX" secondItem="keh-xQ-UGb" secondAttribute="centerX" id="QPT-vI-kcQ"/>
                             <constraint firstItem="nBc-6G-zQD" firstAttribute="centerX" secondItem="keh-xQ-UGb" secondAttribute="centerX" id="Wvi-uq-yAQ"/>
+                            <constraint firstItem="eMi-FX-yyy" firstAttribute="centerY" secondItem="keh-xQ-UGb" secondAttribute="centerY" id="aIi-W1-v14"/>
                             <constraint firstItem="aIi-xx-k7G" firstAttribute="trailing" secondItem="nBc-6G-zQD" secondAttribute="trailing" constant="16" id="drt-KE-PQ8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" largeTitleDisplayMode="never" id="Wvd-aM-Qdp"/>
+                    <navigationItem key="navigationItem" title="Title" largeTitleDisplayMode="never" id="Wvd-aM-Qdp">
+                        <barButtonItem key="rightBarButtonItem" image="memories" catalog="system" id="M78-N4-rLV">
+                            <connections>
+                                <action selector="setNewVideo" destination="f6b-gg-0ul" id="ZIV-Zz-Che"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imgView" destination="nBc-6G-zQD" id="kat-Zc-EAm"/>
                     </connections>
@@ -88,6 +108,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="memories" catalog="system" width="128" height="112"/>
+        <image name="play.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
