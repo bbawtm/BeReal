@@ -15,10 +15,11 @@ import AVKit
 class VideoShowingContoller:
     UIViewController,
     UIImagePickerControllerDelegate,
-    UINavigationControllerDelegate
+    UINavigationControllerDelegate,
+    WithRefreshablePreview
 {
     public var videoModel: VideoModel? = nil
-    private lazy var videoPickerProvider = VideoPickerProviderModel(delegate: self, date: videoModel!.date)
+    private lazy var videoPickerProvider = VideoPickerProviderModel(delegate: self, videoModel: videoModel!)
     
     @IBOutlet var imgView: UIImageView!
     @IBOutlet var playIcon: UIImageView!
@@ -26,16 +27,7 @@ class VideoShowingContoller:
     
     override func viewDidLoad() {
         guard let videoModel else { fatalError("No video model provided") }
-        
-        if videoModel.videoURL != nil {
-            imgView.image = videoModel.previewImage
-            imgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(playVideo)))
-            playIcon.isHidden = false
-            nothingHereIcon.isHidden = true
-        } else {
-            playIcon.isHidden = true
-            nothingHereIcon.isHidden = false
-        }
+        setPreviewForDate(videoModel.date)
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
@@ -69,6 +61,25 @@ class VideoShowingContoller:
         didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]
     ) {
         self.videoPickerProvider.saveRecievedVideo(picker, didFinishPickingMediaWithInfo: info)
+    }
+    
+    func setPreviewForDate(_ date: Date) {
+        guard let videoModel else { fatalError("No video model provided") }
+        guard videoModel.date == date else { return }
+        videoModel.refreshData()
+        if videoModel.videoURL != nil {
+            imgView.image = videoModel.previewImage
+            imgView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(playVideo)))
+            playIcon.isHidden = false
+            nothingHereIcon.isHidden = true
+        } else {
+            playIcon.isHidden = true
+            nothingHereIcon.isHidden = false
+        }
+        
+        if let prev = navigationController?.previousViewController as? WithRefreshablePreview {
+            prev.setPreviewForDate(date)
+        }
     }
     
     // MARK: - Share popover subview
@@ -113,4 +124,9 @@ class VideoShowingContoller:
         self.present(activityViewController, animated: true)
     }
     
+}
+
+
+extension UINavigationController {
+    var previousViewController: UIViewController? { viewControllers.last { $0 != topViewController } }
 }

@@ -12,14 +12,14 @@ class MainScreenTable:
     UICollectionViewController,
     UICollectionViewDelegateFlowLayout,
     UIImagePickerControllerDelegate,
-    UINavigationControllerDelegate
+    UINavigationControllerDelegate,
+    WithRefreshablePreview
 {
-    
     // MARK: - Variables
     
     public var visibleMonth = MonthModel(2, 2023)
     private let weekDayNamings = ["пн", "вт", "ср", "чт", "пт", "сб", "вс"]
-    private lazy var videoPickerProvider = VideoPickerProviderModel(delegate: self)
+    private lazy var videoPickerProvider = VideoPickerProviderModel(delegate: self, videoModel: VideoModel(date: Date()))
     
     private let monthField = {
         let monthField = UITextField()
@@ -153,6 +153,13 @@ class MainScreenTable:
             return CGSize(width: collectionView.frame.size.width, height: 90)
         }
         return CGSize()
+    }
+    
+    public func setPreviewForDate(_ date: Date) {
+        let arrayIndex = visibleMonth.getItemIndexWithDate(date)
+        guard arrayIndex != -1 else { return }
+        visibleMonth.items[arrayIndex].refreshData()
+        collectionView.reloadItems(at: [IndexPath(item: arrayIndex + visibleMonth.firstWeekDay - 2, section: 1)])
     }
     
     // MARK: - Segues

@@ -102,37 +102,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		94D907BF298E546E00C8BEB6 /* VideoShowingScreen */ = {
-			isa = PBXGroup;
-			children = (
-				94D907C2298E54E000C8BEB6 /* View */,
-				94D907C1298E54DA00C8BEB6 /* ViewModel */,
-				94D907C0298E54BA00C8BEB6 /* Model */,
-			);
-			path = VideoShowingScreen;
-			sourceTree = "<group>";
-		};
-		94D907C0298E54BA00C8BEB6 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		94D907C1298E54DA00C8BEB6 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		94D907C2298E54E000C8BEB6 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		94EFCA182976B6D90095B8D3 = {
 			isa = PBXGroup;
 			children = (
@@ -153,7 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				940BDECE297BEA4C00B08F23 /* MainScreen */,
-				94D907BF298E546E00C8BEB6 /* VideoShowingScreen */,
 				94EFCA242976B6D90095B8D3 /* AppDelegate.swift */,
 				94EFCA262976B6D90095B8D3 /* SceneDelegate.swift */,
 				94EFCA302976B6DC0095B8D3 /* Assets.xcassets */,

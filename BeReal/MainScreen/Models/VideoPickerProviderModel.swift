@@ -9,16 +9,24 @@ import UIKit
 import UniformTypeIdentifiers
 
 
+protocol WithRefreshablePreview {
+    func setPreviewForDate(_ date: Date)
+}
+
+
 class VideoPickerProviderModel {
     
-    typealias DelegateType = UIImagePickerControllerDelegate & UINavigationControllerDelegate & UIViewController
+    typealias DelegateType = UIImagePickerControllerDelegate
+        & UINavigationControllerDelegate
+        & UIViewController
+        & WithRefreshablePreview
     
     private let delegate: DelegateType
-    private let date: Date
+    private let videoModel: VideoModel
     
-    public init(delegate: DelegateType, date: Date = Date()) {
+    public init(delegate: DelegateType, videoModel: VideoModel) {
         self.delegate = delegate
-        self.date = date
+        self.videoModel = videoModel
     }
     
     private lazy var videoRecordPicker: UIImagePickerController? = {
@@ -91,7 +99,7 @@ class VideoPickerProviderModel {
             let formatter = DateFormatter()
             formatter.dateFormat = "dd-MM-yyyy"
             formatter.timeZone = .gmt
-            let currentDay = formatter.string(from: self.date)
+            let currentDay = formatter.string(from: self.videoModel.date)
             
             let dataPath = customDirectory.appendingPathComponent("vid-\(currentDay).mp4", conformingTo: .data)
             do {
@@ -103,6 +111,7 @@ class VideoPickerProviderModel {
         }
         videoPhotosPicker.dismiss(animated: true)
         videoRecordPicker?.dismiss(animated: true)
+        self.delegate.setPreviewForDate(self.videoModel.date)
     }
     
 }

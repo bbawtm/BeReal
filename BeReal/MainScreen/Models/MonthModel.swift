@@ -37,6 +37,17 @@ class MonthModel {
         self.firstWeekDay = (weekday != 1) ? weekday : 8
     }
     
+    public func getItemIndexWithDate(_ date: Date) -> Int {
+        return self.items.firstIndex { item in
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd-MM-yyyy"
+            formatter.timeZone = .gmt
+            let itemDay = formatter.string(from: item.date)
+            let extDay = formatter.string(from: date)
+            return itemDay == extDay
+        } ?? -1
+    }
+    
 }
 
 extension Date {

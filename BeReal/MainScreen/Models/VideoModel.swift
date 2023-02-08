@@ -17,7 +17,10 @@ class VideoModel {
     
     init(date: Date) {
         self.date = date
-        
+        refreshData()
+    }
+    
+    public func refreshData() {
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = paths[0]
         let customDirectory = URL(fileURLWithPath: documentsDirectory).appendingPathComponent("videos", conformingTo: .directory)
